@@ -16,7 +16,7 @@ String topicBuffer;
 
 
 // Replace with the MQTT broker IP address and port (default port for MQTT is 1883)
-const char* mqttServer = "192.168.1.116";  
+const char* mqttServer = "10.177.203.103";  
 const int mqttPort = 5883;
 
 

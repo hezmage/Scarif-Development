@@ -1,4 +1,7 @@
 <?php
+require_once 'auth.php';
+authorise(['admin', 'staff', 'student', 'guest']);
+
 // src/index.php - System Landing Page & Navigation Hub
 session_start();
 

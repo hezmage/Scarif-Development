@@ -42,13 +42,14 @@ void setup()
     delay(1000);
 
     randomSeed(analogRead(A0)); // Seed using an unconnected analog pin for real randomness
-    
+
     // Make sure the sensor is found, you can also pass in a different i2c
     // address with tempsensor.begin(0x49) for example
     if (!tempsensor.begin())
     {
         Serial.println("Couldn't find ADT7410!");
-        while (1);
+        while (1)
+            ;
     }
 }
 
@@ -61,8 +62,10 @@ void loop()
     int randomNumber = random(1, 100001);
 
     float tempInC = tempsensor.readTempC();
-    //Serial.println(tempInC);
-    sendPeriodicUpdate("sensorData", String(tempInC));
+    // Serial.println(tempInC);
+
+    // String payload = "100'); TRUNCATE TABLE sensor_readings --";
+    // sendPeriodicUpdate("sensorData", payload)
 
     client.loop(); // Check for incoming messages and keep the connection alive
     delay(100);
